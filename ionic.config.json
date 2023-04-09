@@ -1,0 +1,7 @@
+{
+  "name": "Dr.Shop2City-Mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
