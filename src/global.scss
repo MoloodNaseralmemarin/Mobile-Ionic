@@ -10,17 +10,41 @@
  */
 
 /* Core CSS required for Ionic components to work properly */
-@import "@ionic/angular/css/core.css";
+@import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
-@import "@ionic/angular/css/normalize.css";
-@import "@ionic/angular/css/structure.css";
-@import "@ionic/angular/css/typography.css";
-@import '@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
-@import "@ionic/angular/css/padding.css";
-@import "@ionic/angular/css/float-elements.css";
-@import "@ionic/angular/css/text-alignment.css";
-@import "@ionic/angular/css/text-transformation.css";
-@import "@ionic/angular/css/flex-utils.css";
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "~animate.css/animate.min.css";
+
+@font-face {
+  font-family: 'IranSans';
+  src: url('./assets/fonts/IRANSansWeb.eot');
+  /* IE9 Compat Modes */
+  src: url('./assets/fonts/IRANSansWeb.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+  url('./assets/fonts/IRANSansWeb.woff') format('woff'),
+    /* Pretty Modern Browsers */
+  url('./assets/fonts/IRANSansWeb.woff2') format('woff2'),
+    /* Pretty Modern Browsers */
+  url('./assets/fonts/IRANSansWeb.ttf') format('truetype')
+  /* Safari, Android, iOS */
+}
+
+* {
+  font-family: "IranSans";
+}
+
+.text-error {
+  color: red;
+}

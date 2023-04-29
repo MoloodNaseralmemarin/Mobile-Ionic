@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>خانه</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 class="ion-margin-start">آخرین محصولات</h2>
+  <ion-slides pager="true" [options]="slideOpts" [pager]="false" *ngIf="filterProducts.products !== null && filterProducts.products.length > 0">
+    <ion-slide *ngFor="let product of filterProducts.products" class="latest-products">
+      <ion-card [routerLink]="['/home','products','product-detail',product.id]">
+        <ion-card-content>
+          <div class="product-box">
+            <div class="image-section">
+              <img [src]="imagePath + product.imageName" alt="">
+            </div>
+            <div class="description-section">
+              <p> {{product.productName}} </p>
+              <p>
+                {{product.price}}
+              </p>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  <h2 class="ion-margin-start">محصولات ویژه</h2>
+  <ion-slides [options]="specialSlideOpts" [pager]="false" *ngIf="specialProducts.products !== null && specialProducts.products.length > 0">
+    <ion-slide *ngFor="let product of specialProducts.products">
+      <ion-card [routerLink]="['/home','products','product-detail',product.id]">
+        <ion-card-header class="ion-no-padding ion-no-margin">
+          <img [src]="imagePath + product.imageName" alt="">
+        </ion-card-header>
+
+        <ion-card-content>
+          <p> {{product.productName}} </p>
+          <p>
+            {{product.price}}
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+      ...
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+</ion-content>

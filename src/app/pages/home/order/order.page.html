@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>سبد خرید</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="orderBasketDetails !== null && orderBasketDetails.length > 0">
+    <ion-card *ngFor="let detail of orderBasketDetails">
+      <ion-card-content>
+        <div class="product-box">
+          <div class="image-section" [routerLink]="['/home','products','product-detail',detail.productId]">
+            <img [src]="detail.imageName" alt="">
+          </div>
+          <div class="description-section">
+            <p>{{detail.title}}</p>
+            <p>
+              {{detail.price * detail.count}} تومان
+            </p>
+            <p>
+              {{detail.count}} عدد
+            </p>
+          </div>
+          <ion-icon name="ellipsis-vertical-outline" class="tools" (click)="openActionSheet(detail.id)"></ion-icon>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

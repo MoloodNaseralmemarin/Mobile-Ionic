@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true">
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="main">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-label>خانه</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="products">
+        <ion-icon name="grid-outline"></ion-icon>
+        <ion-label>محصولات</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="order" *ngIf="user !== null">
+        <ion-icon name="basket-outline"></ion-icon>
+        <ion-label>سبد خرید</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="user-info" *ngIf="user !== null">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>اطلاعات من</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="about-us">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label>درباره ما</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

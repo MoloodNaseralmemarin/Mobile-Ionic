@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title *ngIf="productDetail !== null">{{productDetail.product.productName}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/products"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="addProductToOrder()">
+        <ion-icon name="basket-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="productDetail !== null">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>{{productDetail.product.productName}}</ion-card-subtitle>
+        <ion-card-title>{{productDetail.product.price}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <!-- <ion-slides pager="true" [options]="slideOpts">
+                  <ion-slide>
+                      <ion-img [src]="imagePath + productDetail.product.imageName"></ion-img>
+                  </ion-slide>
+                  <ion-slide *ngFor="let image of productDetail.galleries">
+                      <ion-img [src]="imageGalleryPath + image.imageName"></ion-img>
+                  </ion-slide>
+              </ion-slides> -->
+
+        <br> {{productDetail.product.description}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

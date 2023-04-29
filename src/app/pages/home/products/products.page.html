@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>محصولات</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openFilterProductsMenu()">
+        <ion-icon name="filter-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-menu side="end" menuId="filter_products" contentId="filter_products">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>فیلتر محصولات</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">حداقل قیمت</ion-label>
+        <ion-input type="number" (ionChange)="setMinPrice($event)"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">حداکثر قیمت</ion-label>
+        <ion-input (ionChange)="setMaxPrice($event)"></ion-input>
+      </ion-item>
+      <br>
+      <ion-button (click)="filterButton()" expand="block">
+        اعمال
+      </ion-button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet id="filter_products"></ion-router-outlet>
+<ion-content>
+  <div *ngIf="products !== null && products.length > 0">
+    <ion-card *ngFor="let product of products" [routerLink]="['/home','products','product-detail',product.id]">
+      <ion-card-content>
+        <div class="product-box">
+          <div class="image-section">
+            <img [src]="imagePath + product.imageName" alt="">
+          </div>
+          <div class="description-section">
+            <p>{{product.productName}}</p>
+            <p>
+              {{product.price}}
+            </p>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-infinite-scroll threshold="10px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content loadingText="درحال دریافت اطلاعات">
+        <div style="text-align: center" *ngIf="filterProducts.pageId <= filterProducts.endPage">
+          <ion-spinner></ion-spinner>
+        </div>
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+</ion-content>

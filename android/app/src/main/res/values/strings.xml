@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Dr.Shop2City-Mobile</string>
+    <string name="title_activity_main">Dr.Shop2City-Mobile</string>
+    <string name="package_name">ir.DrShop2City.ionicframework</string>
+    <string name="custom_url_scheme">ir.DrShop2City.ionicframework</string>
+</resources>

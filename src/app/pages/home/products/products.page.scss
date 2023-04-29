@@ -1,0 +1,28 @@
+ion-card {
+  margin: 15px;
+  ion-card-content {
+    padding: 5px;
+
+    .product-box {
+      display: flex;
+
+      .image-section {
+        width: 125px;
+        flex: 0 0 125px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .description-section {
+        padding-right: 5px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+}

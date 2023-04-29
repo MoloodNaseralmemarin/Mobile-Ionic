@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>ورود</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/main"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid size="12">
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title color="primary"> ورود به حساب کاربری</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
+              <ion-item>
+                <ion-input type="text" fill="slot" label="نام کاربری" labelPlacement="floating" helperText="نام کاربری را وارد کنید" formControlName="username"
+                  color="primary"></ion-input>
+              </ion-item>
+              <div class="ion-margin-start">
+                <p class="text-error" *ngIf="loginForm.controls.username.errors?.required && loginForm.controls.username.touched">
+                  لطفاً نام کاربری را وارد کنید
+                </p>
+              </div>
+              <ion-item>
+                <ion-input type="password" fill="slot" label="کلمه عبور" labelPlacement="floating" helperText="کلمه عبور را وارد کنید" formControlName="password"
+                  color="primary"></ion-input>
+              </ion-item>
+              <div class="ion-margin-start">
+                <p class="text-error" *ngIf="loginForm.controls.password.errors?.required && loginForm.controls.password.touched">
+                  لطفا کلمه عبور خود را وارد نمایید
+                </p>
+              </div>
+              <br>
+              <ion-button fill="outline" color="primary" expand="block" [disabled]="loginForm.invalid" type="submit">
+                <ion-icon name="log-in-outline" slot="end"></ion-icon>
+                ورود
+              </ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

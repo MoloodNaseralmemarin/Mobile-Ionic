@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>ثبت نام</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/main"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-no-margin ion-no-padding">
+    <ion-row>
+      <ion-col size="12" class="ion-no-margin ion-no-padding">
+        <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">ایمیل</ion-label>
+              <ion-input formControlName="email"></ion-input>
+            </ion-item>
+            <div class="ion-margin-start">
+              <p class="text-error" *ngIf="registerForm.controls.email.errors?.required && registerForm.controls.email.touched">
+                لطفا ایمیل خود را وارد نمایید
+              </p>
+              <p class="text-error" *ngIf="registerForm.controls.email.errors?.email && registerForm.controls.email.touched">
+                ایمیل وارد شده معتبر نمی باشد
+              </p>
+            </div>
+
+              <ion-item>
+                <ion-label position="floating">نام کاربری</ion-label>
+                <ion-input formControlName="username"></ion-input>
+              </ion-item>
+              <div class="ion-margin-start">
+                <p class="text-error" *ngIf="registerForm.controls.username.errors?.required && registerForm.controls.username.touched">
+                  لطفاً نام کاربری وارد کنید
+                </p>
+                <p class="text-error" *ngIf="registerForm.controls.username.errors?.username && registerForm.controls.username.touched">
+                  لطفاً نام کاربری وارد کنید
+                </p>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating">نام</ion-label>
+                <ion-input formControlName="firstName"></ion-input>
+              </ion-item>
+              <div class="ion-margin-start">
+                <p class="text-error" *ngIf="registerForm.controls.firstName.errors?.required && registerForm.controls.firstName.touched">
+                  لطفا نام خود را وارد نمایید
+                </p>
+                <p class="text-error" *ngIf="registerForm.controls.firstName.errors?.maxlength && registerForm.controls.firstName.touched">
+                  تعداد کاراکترها نمیتواند بیشتر از 100 باشد
+                </p>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating">نام خانوادگی</ion-label>
+                <ion-input formControlName="lastName"></ion-input>
+              </ion-item>
+              <div class="ion-margin-start">
+                <p class="text-error" *ngIf="registerForm.controls.lastName.errors?.required && registerForm.controls.lastName.touched">
+                  لطفا نام خانوادگی خود را وارد نمایید
+                </p>
+
+                <p class="text-error" *ngIf="registerForm.controls.firstName.errors?.maxlength && registerForm.controls.firstName.touched">
+                  تعداد کاراکترها نمیتواند بیشتر از 100 باشد
+                </p>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating">آدرس</ion-label>
+                <ion-input formControlName="address"></ion-input>
+              </ion-item>
+
+              <div class="ion-margin-start">
+                <p class="text-error" *ngIf="registerForm.controls.address.errors?.required && registerForm.controls.address.touched">
+                  لطفا آدرس خود را وارد نمایید
+                </p>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating">کلمه ی عبور</ion-label>
+                <ion-input formControlName="password" type="password"></ion-input>
+              </ion-item>
+              <div class="ion-margin-start">
+                <p class="text-error" *ngIf="registerForm.controls.password.errors?.required && registerForm.controls.password.touched">
+                  لطفا کلمه عبور خود را وارد نمایید
+                </p>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating">کلمه ی عبور</ion-label>
+                <ion-input formControlName="confirmPassword" type="password"></ion-input>
+              </ion-item>
+              <div class="ion-margin-start">
+                <p class="text-error" *ngIf="registerForm.controls.confirmPassword.errors?.required && registerForm.controls.confirmPassword.touched">
+                  لطفا تکرار کلمه عبور خود را وارد نمایید
+                </p>
+              </div>
+              <br>
+              <ion-button color="primary" expand="block" [disabled]="registerForm.invalid" type="submit">
+                ثبت نام
+              </ion-button>
+          </ion-list>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

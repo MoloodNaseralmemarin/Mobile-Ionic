@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>اطلاعات من</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="ion-no-margin ion-no-padding">
+        <ion-row>
+            <ion-col size="12" class="ion-no-margin ion-no-padding">
+                <form [formGroup]="editUser" (ngSubmit)="submitEditUserForm()">
+                    <ion-list>
+                        <ion-item>
+                            <ion-label position="floating">نام</ion-label>
+                            <ion-input formControlName="firstName"></ion-input>
+                        </ion-item>
+                        <div class="ion-margin-start">
+                            <p class="text-error"
+                               *ngIf="editUser.controls.firstName.errors?.required && editUser.controls.firstName.touched">
+                                لطفا نام خود را وارد نمایید
+                            </p>
+                            <p class="text-error"
+                               *ngIf="editUser.controls.firstName.errors?.maxlength && editUser.controls.firstName.touched">
+                                تعداد کاراکترها نمیتواند بیشتر از 100 باشد
+                            </p>
+                        </div>
+                        <ion-item>
+                            <ion-label position="floating">نام خانوادگی</ion-label>
+                            <ion-input formControlName="lastName"></ion-input>
+                        </ion-item>
+                        <div class="ion-margin-start">
+                            <p class="text-error"
+                               *ngIf="editUser.controls.lastName.errors?.required && editUser.controls.lastName.touched">
+                                لطفا نام خانوادگی خود را وارد نمایید
+                            </p>
+                            <p class="text-error"
+                               *ngIf="editUser.controls.lastName.errors?.maxlength && editUser.controls.lastName.touched">
+                                تعداد کاراکترها نمیتواند بیشتر از 100 باشد
+                            </p>
+                        </div>
+
+                        <ion-item>
+                            <ion-label position="floating">آدرس</ion-label>
+                            <ion-input formControlName="address"></ion-input>
+                        </ion-item>
+                        <div class="ion-margin-start">
+                            <p class="text-error"
+                               *ngIf="editUser.controls.address.errors?.required && editUser.controls.address.touched">
+                                لطفا آدرس خود را وارد نمایید
+                            </p>
+                            <p class="text-error"
+                               *ngIf="editUser.controls.address.errors?.maxlength && editUser.controls.address.touched">
+                                تعداد کاراکترها نمیتواند بیشتر از 500 باشد
+                            </p>
+                        </div>
+
+                        <br>
+                        <ion-button color="primary" expand="block" [disabled]="editUser.invalid" type="submit">
+                            ویرایش اطلاعات
+                        </ion-button>
+                    </ion-list>
+                </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
